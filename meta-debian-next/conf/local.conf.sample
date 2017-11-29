@@ -1,0 +1,4 @@
+MACHINE = "armhf"
+DISTRO = "buster"
+DL_DIR = "${TOPDIR}/downloads"
+CONF_VERSION = "1"

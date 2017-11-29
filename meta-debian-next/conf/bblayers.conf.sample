@@ -1,0 +1,12 @@
+# POKY_BBLAYERS_CONF_VERSION is increased each time build/conf/bblayers.conf
+# changes incompatibly
+POKY_BBLAYERS_CONF_VERSION = "2"
+
+BBPATH = "${TOPDIR}"
+BBFILES ?= ""
+
+# TODO: consider adding OE-Core (meta)
+BBLAYERS ?= " \
+  ##OEROOT##/nneta-elbe \
+  ##OEROOT##/meta-debian/meta-debian-next \
+  "
