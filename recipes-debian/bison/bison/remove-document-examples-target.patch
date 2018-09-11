@@ -1,0 +1,46 @@
+diff --git a/Makefile.am b/Makefile.am
+index b6135cb..130edfc 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -57,9 +57,7 @@ noinst_LIBRARIES =
+ include build-aux/local.mk
+ include data/local.mk
+ include djgpp/local.mk
+-include doc/local.mk
+ include etc/local.mk
+-include examples/local.mk
+ include lib/local.mk
+ include src/local.mk
+ include tests/local.mk
+diff --git a/Makefile.in b/Makefile.in
+index ee8b6b6..100fc25 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -5328,14 +5328,6 @@ html-local: doc/Doxyfile
+ # configure, because the former is way faster than the latter.
+ doc/Doxyfile: $(top_srcdir)/doc/Doxyfile.in
+ 	$(AM_V_GEN) $(edit) $(top_srcdir)/doc/Doxyfile.in >doc/Doxyfile
+-examples/extracted.stamp: $(doc) $(extexi)
+-	$(AM_V_GEN)rm -f $@ $@.tmp
+-	$(AM_V_at)touch $@.tmp
+-	$(AM_V_at)$(extract) $(extracted)
+-	$(AM_V_at)mv $@.tmp $@
+-
+-$(extracted): examples/extracted.stamp
+-	touch $@
+ 
+ # Don't depend on $(BISON) otherwise we would rebuild these files
+ # in srcdir, including during distcheck, which is forbidden.
+diff --git a/tests/local.mk b/tests/local.mk
+index 0fa6947..e952a3a 100644
+--- a/tests/local.mk
++++ b/tests/local.mk
+@@ -18,7 +18,7 @@
+ EXTRA_DIST += $(TESTSUITE_AT) tests/testsuite
+ 
+ DISTCLEANFILES       += tests/atconfig $(check_SCRIPTS)
+-MAINTAINERCLEANFILES += $(TESTSUITE)
++MAINTAINERCLEANFILES = $(TESTSUITE)
+ 
+ ## ------------ ##
+ ## package.m4.  ##
