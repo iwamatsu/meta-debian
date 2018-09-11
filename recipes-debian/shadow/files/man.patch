@@ -1,0 +1,9 @@
+--- a/Makefile.am	2017-08-10 22:26:45.000000000 +0000
++++ b/Makefile.am	2018-09-11 03:35:12.178351856 +0000
+@@ -2,5 +2,5 @@
+ 
+ EXTRA_DIST = NEWS README TODO shadow.spec.in
+ 
+-SUBDIRS = po man libmisc lib src \
++SUBDIRS = po libmisc lib src \
+ 	contrib doc etc
