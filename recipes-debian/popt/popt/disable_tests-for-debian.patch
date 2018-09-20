@@ -1,0 +1,16 @@
+diff --git a/Makefile.am b/Makefile.am
+index 7b63fe4..e29bfd8 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -34,11 +34,6 @@ tdict_LDADD = $(usrlib_LTLIBRARIES)
+ 
+ noinst_SCRIPTS = testit.sh
+ 
+-TESTS_ENVIRONMENT = \
+-test1="$(top_builddir)/test1"
+-
+-TESTS = testit.sh
+-
+ include_HEADERS = popt.h
+ 
+ usrlibdir = $(libdir)
