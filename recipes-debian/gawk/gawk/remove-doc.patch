@@ -1,0 +1,42 @@
+diff --git a/.Makefile.am.swp b/.Makefile.am.swp
+deleted file mode 100644
+index 7749412..0000000
+Binary files a/.Makefile.am.swp and /dev/null differ
+diff --git a/Makefile.am b/Makefile.am
+index 0089b86..6554887 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -70,7 +70,7 @@ endif
+ 
+ # Build in awklib after in doc, since we want to extract
+ # sample files if doc/gawk.texi changed.
+-SUBDIRS += extras doc awklib po test
++SUBDIRS += extras awklib po test
+ 
+ # what to make and install
+ bin_PROGRAMS = gawk
+diff --git a/Makefile.in b/Makefile.in
+index 10bc6f2..ee92bb2 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -266,7 +266,7 @@ am__define_uniq_tagged_files = \
+ ETAGS = etags
+ CTAGS = ctags
+ CSCOPE = cscope
+-DIST_SUBDIRS = support . extension extras doc awklib po test
++DIST_SUBDIRS = support . extension extras awklib po test
+ am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/configh.in ABOUT-NLS \
+ 	AUTHORS COPYING ChangeLog INSTALL NEWS README TODO awkgram.c \
+ 	command.c compile config.guess config.rpath config.sub depcomp \
+diff --git a/configure.ac b/configure.ac
+index f45c710..1d118b0 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -448,7 +448,6 @@ AC_SUBST(GAWKLIBEXT)
+ AC_CONFIG_FILES(Makefile
+ 	support/Makefile
+ 	awklib/Makefile
+-	doc/Makefile
+ 	extras/Makefile
+ 	po/Makefile.in
+ 	test/Makefile)
