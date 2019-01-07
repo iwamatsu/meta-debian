@@ -145,4 +145,6 @@ do_poststash_install_cleanup_append() {
 	fi
 }
 
+INSANE_SKIP_${PN}-dev += "dev-elf"
+
 BBCLASSEXTEND = "nativesdk"
