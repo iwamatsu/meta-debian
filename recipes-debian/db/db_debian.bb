@@ -20,6 +20,7 @@ inherit debian-package
 require recipes-debian/sources/db5.3.inc
 BPN = "db5.3"
 DEBIAN_UNPACK_DIR = "${WORKDIR}/db-${PV}"
+FILESEXTRAPATHS_prepend := "${THISDIR}/db:"
 
 LICENSE = "Sleepycat"
 LIC_FILES_CHKSUM = " \
@@ -32,6 +33,7 @@ RCONFLICTS_${PN} = "db3"
 SRC_URI += "file://fix-parallel-build.patch \
             file://0001-configure-Add-explicit-tag-options-to-libtool-invoca.patch \
             file://sequence-type.patch \
+            file://0001-Revrt-002-versioned_symbols.patch.patch \
            "
 FILESEXTRAPATHS =. "${COREBASE}/meta/recipes-support/db/db:"
 

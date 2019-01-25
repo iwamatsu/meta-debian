@@ -1,0 +1,35 @@
+From cbe0baa2ad1a83afeceb924b7fddad5a39508822 Mon Sep 17 00:00:00 2001
+From: Nobuhiro Iwamatsu <nobuhiro.iwamatsu@miraclelinux.com>
+Date: Fri, 25 Jan 2019 01:59:44 +0000
+Subject: [PATCH] Revrt 002-versioned_symbols.patch
+
+Signed-off-by: Nobuhiro Iwamatsu <nobuhiro.iwamatsu@miraclelinux.com>
+---
+ dist/Makefile.in | 10 ++--------
+ 1 file changed, 2 insertions(+), 8 deletions(-)
+
+diff --git a/dist/Makefile.in b/dist/Makefile.in
+index ca3850a..9fcd8d0 100644
+--- a/dist/Makefile.in
++++ b/dist/Makefile.in
+@@ -855,15 +855,9 @@ $(libdb_version): $(C_OBJS)
+ 	$(RM) $(libdb)
+ 	$(LN) -s $(libdb_version) $(libdb)
+ 
+-Versions: $(C_OBJS)
+-	rm -f $@
+-	printf "DB5_3 {\n  global:\n" > $@
+-	nm $$(sed -n "/^pic_object='\(.*\)'$$/ { s//\1/;s,.libs/,,;p;}" $(C_OBJS)) | grep " [DTR] " | cut -d" " -f3 | sed -e 's/$$/;/' >> $@
+-	printf "local: *; };\n" >> $@
+-
+ # Shared C library.
+-$(libso_target): $(C_OBJS) Versions
+-	$(SOLINK) $(SOFLAGS) -Wl,--version-script=Versions $(LDFLAGS) -o $@ $(C_OBJS) \
++$(libso_target): $(C_OBJS)
++	$(SOLINK) $(SOFLAGS) $(LDFLAGS) -o $@ $(C_OBJS) \
+ 		$(LIBCSO_LIBS)
+ 	$(RM) $(libdb)
+ 	$(LN) -s .libs/$(libdb_version) $(libdb)
+-- 
+2.17.1
+
