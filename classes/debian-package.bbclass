@@ -12,6 +12,7 @@ DEBIAN_UNPACK_DIR ?= "${WORKDIR}/${BP}"
 S = "${DEBIAN_UNPACK_DIR}"
 DPV ?= "${PV}"
 
+BB_HASHBASE_WHITELIST += "DEBIAN_UNPACK_DIR"
 
 ###############################################################################
 # do_debian_unpack_extra
